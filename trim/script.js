@@ -1,12 +1,16 @@
 String.prototype.myTrim = function () {
-   let arr = this.split("");
-   let newArr = [];
-   for (let i = 0; i < arr.length; i++) {
-      if (arr[i] !== " ") {
-         newArr.push(arr[i]);
-      }
+   const str = String(this);
+   let start = 0;
+   let end = str.length - 1;
+
+   while (start <= end && str[start] === " ") {
+      start++;
    }
-   return newArr.join("");
+   while (end >= start && str[end] === " ") {
+      end--;
+   }
+
+   return str.substring(start, end + 1);
 };
 
 let str = "    hi     ";
